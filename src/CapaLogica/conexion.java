@@ -20,7 +20,7 @@ public class conexion {
     String usuario =  "root"; 
     String contraseña = "Chiclayo2005"; 
     String bd = "sistemareservahotel"; 
-    String ip = "localhost"; 
+    String ip = "127.0.0.1"; 
     String puerto = "3306"; 
     
     String cadena = "jdbc:mysql://"+ip+":"+puerto+"/"+bd;
