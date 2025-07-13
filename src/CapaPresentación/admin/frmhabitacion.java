@@ -9,7 +9,9 @@ import CapaPresentación.admin.swing.CheckBoxTableHeaderRenderer;
 import CapaPresentación.admin.swing.TableHeaderAlignment;
 import com.formdev.flatlaf.FlatClientProperties;
 import com.formdev.flatlaf.extras.FlatSVGIcon;
+import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
 import java.awt.Component;
+import java.awt.Font;
 import java.awt.Window;
 import javax.swing.*;
 import javax.swing.JTextArea;
@@ -26,11 +28,10 @@ public class frmhabitacion extends TabbedForm {
     public frmhabitacion() {
         initComponents();
         init();
+        UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY, Font.PLAIN, 13));
     }
 
     public void init() {
-
-        
         panel.putClientProperty(FlatClientProperties.STYLE, ""
                 + "arc:25;"
                 + "background:$Table.background");
