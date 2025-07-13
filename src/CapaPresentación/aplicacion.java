@@ -4,7 +4,7 @@ package CapaPresentación;
 import CapaPresentación.LoginRegistro.frmLogin;
 import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.fonts.roboto.FlatRobotoFont;
-import com.formdev.flatlaf.themes.FlatMacDarkLaf;
+import com.formdev.flatlaf.themes.FlatMacLightLaf;
 import java.awt.Font;
 import javax.swing.UIManager;
 import raven.tabbed.WindowsTabbed;
@@ -16,9 +16,12 @@ public class aplicacion {
         
         FlatLaf.registerCustomDefaultsSource("raven.themes");
         UIManager.put("defaultFont", new Font(FlatRobotoFont.FAMILY, Font.PLAIN, 13));
-        FlatMacDarkLaf.setup(); 
+        FlatMacLightLaf.setup(); 
+
+        
         frmLogin inicio = new frmLogin(); 
         inicio.setVisible(true);
         inicio.setLocationRelativeTo(null);
+
     }
 }

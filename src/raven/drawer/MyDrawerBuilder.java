@@ -1,6 +1,8 @@
 package raven.drawer;
 
-import CapaPresentación.admin.TestForm;
+import CapaPresentación.admin.DashboardForm;
+
+import CapaPresentación.admin.frmhabitacion;
 import com.sun.tools.javac.Main;
 import raven.drawer.component.SimpleDrawerBuilder;
 import raven.drawer.component.footer.SimpleFooterData;
@@ -25,31 +27,29 @@ public class MyDrawerBuilder extends SimpleDrawerBuilder {
     @Override
     public SimpleMenuOption getSimpleMenuOption() {
         String menus[][] = {
-            {"~MAIN~"},
+            {"~PANEL PRINCIPAL~"},
             {"Dashboard"},
-            {"~WEB APP~"},
-            {"Email", "Inbox", "Read", "Compost"},
-            {"Chat"},
-            {"Calendar"},
-            {"~COMPONENT~"},
-            {"Advanced UI", "Cropper", "Owl Carousel", "Sweet Alert"},
-            {"Forms", "Basic Elements", "Advanced Elements", "SEditors", "Wizard"},
-            {"~OTHER~"},
-            {"Charts", "Apex", "Flot", "Sparkline"},
-            {"Icons", "Feather Icons", "Flag Icons", "Mdi Icons"},
-            {"Special Pages", "Blank page", "Faq", "Invoice", "Profile", "Pricing", "Timeline"},
+            {"~OPERACIONES~"},
+            {"Nueva Reserva", "Consultar Reservas", "Chek-in", "Chek-out", "Calendario Ocupación"},
+            {"Hospedaje", "Listado y Registro de \nHabitaciones"},
+            {"Servicio y Consumos", "Registrar Consumo","Gestión de Productos"},
+            {"~ADMINISTRACION~"},
+            {"Clientes", "Listado de Clientes", "Nuevo Cliente"},
+            {"Empleados", "Lista de Empleados", "Nuevo Empleado", "Gestion de Roles"},
+            {"Finanzas y Pagos","Registrar Pago","Historial de Pagos","Facturación"},
+            {"~REPORTES~"},
+            {"Reportes de Ocupacion", "Reportes de Ingreso", "Reportes de CLientes"},
             {"Logout"}};
 
         String icons[] = {
             "dashboard.svg",
-            "email.svg",
-            "chat.svg",
             "calendar.svg",
-            "ui.svg",
+            "email.svg",
+            "service.svg",
+            "client.svg",
             "forms.svg",
             "chart.svg",
-            "icon.svg",
-            "page.svg",
+            "reports.svg",
             "logout.svg"};
 
         return new SimpleMenuOption()
@@ -61,7 +61,10 @@ public class MyDrawerBuilder extends SimpleDrawerBuilder {
                     @Override
                     public void selected(MenuAction action, int index, int subIndex) {
                         if (index == 0) {
-                            WindowsTabbed.getInstance().addTab("Test Form", new TestForm());
+                            WindowsTabbed.getInstance().addTab("Test Form", new DashboardForm());   
+                        }
+                        if (subIndex == 1) {
+                            WindowsTabbed.getInstance().addTab("Habitaciones", new frmhabitacion());
                         }
                         System.out.println("Menu selected " + index + " " + subIndex);
                     }
