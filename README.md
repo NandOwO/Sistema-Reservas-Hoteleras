@@ -231,7 +231,7 @@ ant run  # si está configurado el target run en build.xml
 
 ## Licencias
 ```markdown
-Distribuido bajo la Licencia MIT. Ver [LICENSE](./LICENSE) para más detalles.
+Distribuido bajo la Licencia MIT. Ver [LICENSE](LICENSE) para más detalles.
 ```
 
 ## Capturas
