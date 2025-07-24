@@ -1,48 +1,39 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/MDIApplication.java to edit this template
- */
 package CapaPresentación;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 public class frmInicio extends javax.swing.JFrame {
 
     private String nivelAcceso;
-    public static JLabel lblnombreusuario; 
-    public static JLabel lbltipousuario; 
 
     public frmInicio() {
         initComponents();
-        lblnombreusuario = new JLabel();
-        lbltipousuario = new JLabel();
-
-        desktopPane.add(lblnombreusuario); 
-        desktopPane.add(lbltipousuario);
-
-        lblnombreusuario.setBounds(10, 10, 300, 20);
-        lbltipousuario.setBounds(10, 40, 300, 20);
     }
 
-    public frmInicio(String nombreCompleto, String acceso) { 
+    public frmInicio(String nombreCompleto, String acceso) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("Sistema De Gestion de Reserva Hotelera");
 
         this.nivelAcceso = acceso;
-        
-        
-        if (lblnombreusuario != null) {
-            lblnombreusuario.setText("¡Bienvenido, " + nombreCompleto + "!");
+        if (lbltipousuario != null) {
+            lbltipousuario.setText("¡Bienvenido, " + nombreCompleto + "!");
+            lblnombreusuario.setForeground(new java.awt.Color(0, 0, 0));
+            lblnombreusuario.setFont(new java.awt.Font("Segoe UI", java.awt.Font.BOLD, 16));
         } else {
-            System.err.println("Error: lblnombreusuario es null. Asegúrese de que el JLabel existe y está declarado correctamente.");
+            System.err.println("Error: lblnombreusuario es null.");
         }
-        
+
         if (lbltipousuario != null) {
             lbltipousuario.setText("Tipo de Usuario: " + acceso);
+            lbltipousuario.setText("Tipo de Usuario: " + acceso);
+            lbltipousuario.setForeground(new java.awt.Color(0, 0, 0));
+            lbltipousuario.setFont(new java.awt.Font("Segoe UI", java.awt.Font.PLAIN, 14));
         } else {
-            System.err.println("Error: lbltipousuario es null. Asegúrese de que el JLabel existe y está declarado correctamente.");
+            System.err.println("Error: lbltipousuario es null.");
         }
 
         configurarPermisos();
@@ -50,6 +41,10 @@ public class frmInicio extends javax.swing.JFrame {
 
     private void configurarPermisos() {
         if (nivelAcceso != null) {
+            ImageIcon icon = null;
+            int iconWidth = 100;
+            int iconHeight = 100;
+            
             switch (nivelAcceso.toLowerCase()) {
                 case "administrador":
                     fileMenu.setVisible(true);
@@ -64,6 +59,19 @@ public class frmInicio extends javax.swing.JFrame {
 
                     jMenu2.setVisible(true);
                     jMenuItem2.setEnabled(true);
+                    
+                    try {
+
+                        icon = new ImageIcon(getClass().getResource("/imagen/admin.png")); 
+                        if (icon != null && icon.getImage() != null) {
+                            Image img = icon.getImage();
+                            Image scaledImg = img.getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH);
+                            icon = new ImageIcon(scaledImg);
+                        }
+                    } catch (Exception e) {
+                        System.err.println("Error al cargar icono de administrador: " + e.getMessage());
+                    }
+                    
                     break;
 
                 case "usuario":
@@ -79,6 +87,18 @@ public class frmInicio extends javax.swing.JFrame {
 
                     jMenu2.setVisible(false);
                     jMenuItem2.setEnabled(false);
+                    
+                    try {
+
+                        icon = new ImageIcon(getClass().getResource("/imagen/usuario.png"));
+                        if (icon != null && icon.getImage() != null) {
+                            Image img = icon.getImage();
+                            Image scaledImg = img.getScaledInstance(iconWidth, iconHeight, Image.SCALE_SMOOTH);
+                            icon = new ImageIcon(scaledImg);
+                        }
+                    } catch (Exception e) {
+                        System.err.println("Error al cargar icono de usuario: " + e.getMessage());
+                    }
                     break;
                 default:
 
@@ -95,6 +115,10 @@ public class frmInicio extends javax.swing.JFrame {
                     jMenuItem2.setEnabled(false);
                     break;
             }
+            
+             if (lblimagen != null && icon != null) {
+                lblimagen.setIcon(icon);
+            }
         }
     }
 
@@ -108,6 +132,9 @@ public class frmInicio extends javax.swing.JFrame {
     private void initComponents() {
 
         desktopPane = new javax.swing.JDesktopPane();
+        lblnombreusuario = new javax.swing.JLabel();
+        lbltipousuario = new javax.swing.JLabel();
+        lblimagen = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         editMenu = new javax.swing.JMenu();
@@ -121,6 +148,16 @@ public class frmInicio extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lblnombreusuario.setText("jLabel1");
+        desktopPane.add(lblnombreusuario);
+        lblnombreusuario.setBounds(340, 110, 330, 30);
+
+        lbltipousuario.setText("jLabel2");
+        desktopPane.add(lbltipousuario);
+        lbltipousuario.setBounds(340, 150, 280, 40);
+        desktopPane.add(lblimagen);
+        lblimagen.setBounds(90, 70, 180, 180);
 
         fileMenu.setMnemonic('f');
         fileMenu.setText("Sisreserva");
@@ -265,6 +302,9 @@ public class frmInicio extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JLabel lblimagen;
+    public static javax.swing.JLabel lblnombreusuario;
+    public static javax.swing.JLabel lbltipousuario;
     private javax.swing.JMenuBar menuBar;
     // End of variables declaration//GEN-END:variables
 

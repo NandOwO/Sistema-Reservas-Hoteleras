@@ -62,7 +62,7 @@ public class frmLogin extends javax.swing.JFrame {
                 if ("Activado".equals(estado)) {
                     mensajeVerificado();
                     
-                    frmInicio menu = new frmInicio(); 
+                    frmInicio menu = new frmInicio(nombreCompleto, acceso); 
                     
                     frmInicio.lblnombreusuario.setText("¡Bienvenido, " + nombreCompleto + "!"); 
                     frmInicio.lbltipousuario.setText("Tipo de Usuario: " + acceso); 
