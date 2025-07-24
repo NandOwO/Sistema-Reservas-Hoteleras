@@ -9,7 +9,7 @@ Conexión con MySQL mediante JDBC
 
 > **Estado:** En desarrollo  
 > **Stack principal:** Java (Swing/JavaFX si aplica), MySQL, Ant (NetBeans)  
-> **Autor:** @NandOwO @HunterMk12 @Lisbeth02pink
+> **Autores:** @NandOwO @HunterMk12 @Lisbeth02pink
 
 ---
 
