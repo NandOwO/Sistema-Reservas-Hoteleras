@@ -298,7 +298,7 @@ public class frmReserva extends javax.swing.JFrame {
         try {
             idABuscar = Integer.parseInt(idBuscarStr);
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "¡Error! El ID de reserva debe ser un número válido.");
+            JOptionPane.showMessageDialog(null, "El ID de reserva debe ser un número válido.");
             limpiarCamposDetalleReserva();
             return;
         }

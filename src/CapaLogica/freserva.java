@@ -51,7 +51,7 @@ public class freserva {
                 );
                 arbolReservasPorId.insertar(res.getIdreserva(), res);
             }
-            System.out.println("¡Maestro! " + (arbolReservasPorId.raiz != null ? "Reservas cargadas en AVL con éxito." : "No hay reservas activas para cargar en AVL."));
+            System.out.println("" + (arbolReservasPorId.raiz != null ? "Reservas cargadas en AVL con éxito." : "No hay reservas activas para cargar en AVL."));
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al cargar reservas en AVL desde la DB: " + e.getMessage());
         } finally {
@@ -179,7 +179,7 @@ public class freserva {
         }
     }
 
-    // Agrega métodos para editar y eliminar para mantener el AVL sincronizado
+
     public boolean editar(vreserva dts) {
         String sql = "UPDATE reserva SET idhabitacion=?, idcliente=?, idtrabajador=?, tipo_reserva=?, fecha_reserva=?, fecha_ingresa=?, fecha_salida=?, costo_alojamiento=?, estado=? WHERE idreserva=?";
         PreparedStatement pst = null;
@@ -190,7 +190,7 @@ public class freserva {
             pst.setInt(3, dts.getIdtrabajador());
             pst.setString(4, dts.getTipo_reserva());
             pst.setString(5, dts.getFecha_reserva());
-            pst.setString(6, dts.getFecha_entrada()); // Asumo que getFecha_entrada() corresponde a fecha_ingresa en DB
+            pst.setString(6, dts.getFecha_entrada());
             pst.setString(7, dts.getFecha_salida());
             pst.setDouble(8, dts.getCosto_alojamiento());
             pst.setString(9, dts.getEstado());

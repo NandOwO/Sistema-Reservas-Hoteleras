@@ -42,7 +42,7 @@ public class frmPago extends javax.swing.JFrame {
             txtIGV.setText("0.19"); 
             System.out.println("DEBUG: Datos de reserva cargados exitosamente. Costo: " + reservaActual.getCosto_alojamiento()); // DEBUG
         } else {
-            JOptionPane.showMessageDialog(this, "¡Lo siento, Maestro! No se encontró la reserva con ID: " + idReserva + ". No se pudo cargar el precio.", "Error de Carga", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No se encontró la reserva con ID: " + idReserva + ". No se pudo cargar el precio.", "Error de Carga", JOptionPane.ERROR_MESSAGE);
             txtTotalPago.setText("0.00");
             txtIGV.setText("0.00");
             System.out.println("DEBUG: NO se pudo cargar la reserva con ID: " + idReserva); // DEBUG
@@ -115,7 +115,7 @@ public class frmPago extends javax.swing.JFrame {
         int result = JOptionPane.showOptionDialog(
                 this,
                 scrollPane,
-                "¡Maestro! Comprobante de Pago",
+                "Comprobante de Pago",
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.PLAIN_MESSAGE,
                 null,
